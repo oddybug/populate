@@ -15,5 +15,7 @@ TODO List for the script:
 - [ ] Request promp to specify wich apps and devtools to install
 - [x] Install Nerd Font
 - [ ] Install zsh and copy config fron renite repo
-- [ ] Install nvim and copy config from remote repo
+- [x] Install nvim and copy config from remote repo
+- [x] Install alacritty and edit config (transparency)
+- [x] Config git profile
 - [ ] Install sway and copy config from remote repo

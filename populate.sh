@@ -1,7 +1,34 @@
 #!/bin/bash
 
+install_nvim_fedora(){
+   sudo dnf install nvim
+   git clone https://github.com/oddybug/dot-nvim.git ~/.config/nvim
+
+    echo "Nvim installed succesfuly."
+}
+
+install_alacritty_fedora(){
+    sudo dnf install alacritty -y
+    mkdir -p ~/.config/alacritty
+    echo -e "[window]\nopacity = 0.8" > ~/.config/alacritty/alacritty.toml
+
+    echo "Alacritty installed succesfuly."
+}
+
+config_git_profile(){
+    read -p "Enter your Git user name: " git_name
+    read -p "Enter your Git email address: " git_email
+
+    git config --global user.name "$git_name"
+    git config --global user.email "$git_email"
+
+    echo "Successfully updated ~/.gitconfig:"
+    echo "Name:  $(git config --global user.name)"
+    echo "Email: $(git config --global user.email)"
+}
+
 install_nerdfont_fedora(){
-local FONT_NAME="AdwaitaMono Nerd Font"
+    local FONT_NAME="AdwaitaMono Nerd Font"
     local URL="https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/AdwaitaMono.zip"
     local FONT_DIR="$HOME/.local/share/fonts/$FONT_NAME"
 
@@ -29,7 +56,10 @@ fi
 
 if [ "$ID" = "fedora" ]; then
     echo "Populating for Fedora Linux."
-    install_nerdfont_fedora
+   # install_alacritty_fedora
+   # install_nvim_fedora
+   # install_nerdfont_fedora
+    config_git_profile
 else
     echo "Check failed: This system is $NAME, not Fedora."
     exit 1
