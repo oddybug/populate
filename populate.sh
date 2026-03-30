@@ -1,5 +1,9 @@
 #!/bin/bash
 
+install_cpp_tools_fedora(){
+   sudo dnf install cmake gcc-c++
+}
+
 install_nvim_fedora(){
    sudo dnf install nvim
    git clone https://github.com/oddybug/dot-nvim.git ~/.config/nvim
@@ -56,10 +60,11 @@ fi
 
 if [ "$ID" = "fedora" ]; then
     echo "Populating for Fedora Linux."
-   # install_alacritty_fedora
-   # install_nvim_fedora
-   # install_nerdfont_fedora
+    install_alacritty_fedora
+    install_nvim_fedora
+    install_nerdfont_fedora
     config_git_profile
+    install_cpp_tools_fedora
 else
     echo "Check failed: This system is $NAME, not Fedora."
     exit 1
