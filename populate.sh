@@ -1,14 +1,21 @@
 #!/bin/bash
 
 install_cpp_tools_fedora(){
-   sudo dnf install cmake gcc-c++
+    sudo dnf install cmake gcc-c++
 }
 
 install_nvim_fedora(){
-   sudo dnf install nvim
-   git clone https://github.com/oddybug/dot-nvim.git ~/.config/nvim
+    sudo dnf install nvim
+    git clone https://github.com/oddybug/dot-nvim.git ~/.config/nvim
 
     echo "Nvim installed succesfuly."
+}
+
+
+install_sway_fedora(){
+    sudo dnf install sway
+
+    echo "sway installed succesfuly."
 }
 
 install_alacritty_fedora(){
