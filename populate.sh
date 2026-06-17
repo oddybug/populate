@@ -4,6 +4,10 @@ install_cpp_tools_fedora(){
     sudo dnf install cmake gcc-c++
 }
 
+install_zsh_fedora(){
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+}
+
 install_nvim_fedora(){
     sudo dnf install nvim
     git clone https://github.com/oddybug/dot-nvim.git ~/.config/nvim
@@ -11,9 +15,14 @@ install_nvim_fedora(){
     echo "Nvim installed succesfuly."
 }
 
+install_zsh_fedora(){
+    sudo dnf install zsh
+}
+
 
 install_sway_fedora(){
     sudo dnf install sway
+    sudo dnf install waybar
 
     echo "sway installed succesfuly."
 }
@@ -58,6 +67,10 @@ install_nerdfont_fedora(){
     fi
 }
 
+install_utils_fedora(){
+    sudo dnf install btop
+}
+
 if [ -f /etc/os-release ]; then
     . /etc/os-release
 else
@@ -71,7 +84,9 @@ if [ "$ID" = "fedora" ]; then
     install_nvim_fedora
     install_nerdfont_fedora
     config_git_profile
+    install_zsh_fedora
     install_cpp_tools_fedora
+    install_utils_fedora
 else
     echo "Check failed: This system is $NAME, not Fedora."
     exit 1
