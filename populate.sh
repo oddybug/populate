@@ -71,6 +71,10 @@ install_utils_fedora(){
     sudo dnf install btop
 }
 
+install_wireguard_fedora(){
+    sudo dnf install wireguard-tools
+}
+
 if [ -f /etc/os-release ]; then
     . /etc/os-release
 else
@@ -87,6 +91,7 @@ if [ "$ID" = "fedora" ]; then
     install_zsh_fedora
     install_cpp_tools_fedora
     install_utils_fedora
+    install_wireguard_fedora
 else
     echo "Check failed: This system is $NAME, not Fedora."
     exit 1
