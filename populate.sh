@@ -68,7 +68,7 @@ install_nerdfont_fedora(){
 }
 
 install_utils_fedora(){
-    sudo dnf install btop
+    sudo dnf install btop j4-dmenu-desktop
 }
 
 install_wireguard_fedora(){
