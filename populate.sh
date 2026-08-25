@@ -19,10 +19,12 @@ install_zsh_fedora(){
     sudo dnf install zsh
 }
 
-
 install_sway_fedora(){
     sudo dnf install sway
     sudo dnf install waybar
+
+    git clone https://github.com/oddybug/dot-sway.git ~/.config/sway
+    git clone https://github.com/oddybug/dot-waybar.git ~/.config/waybar
 
     echo "sway installed succesfuly."
 }
@@ -84,14 +86,15 @@ fi
 
 if [ "$ID" = "fedora" ]; then
     echo "Populating for Fedora Linux."
-    install_alacritty_fedora
-    install_nvim_fedora
-    install_nerdfont_fedora
-    config_git_profile
-    install_zsh_fedora
-    install_cpp_tools_fedora
-    install_utils_fedora
-    install_wireguard_fedora
+    #install_alacritty_fedora
+    #install_nvim_fedora
+    #install_nerdfont_fedora
+    #config_git_profile
+    #install_zsh_fedora
+    #install_cpp_tools_fedora
+    #install_utils_fedora
+    #install_wireguard_fedora
+    install_sway_fedora
 else
     echo "Check failed: This system is $NAME, not Fedora."
     exit 1
